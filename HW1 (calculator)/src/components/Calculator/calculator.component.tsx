@@ -1,50 +1,61 @@
 import { useState } from "react";
-import "./calculator.css";
 import Display from "../Display/display.components";
+import "./calculator.css";
+
+const BUTTONS: string[] = [
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "0",
+  "+",
+  "-",
+  "=",
+];
+
 function Calculator() {
-  const [expression, setExpression] = useState<string>(""); // Input expression state
-  const [result, setResult] = useState<number | string | null>(null); // Result state
+  const [expression, setExpression] = useState<string>("");
+  const [result, setResult] = useState<number | string | null>(null);
 
   const handleClick = (value: string) => {
     if (value === "=") {
-      try {
-        // Use `eval` carefully for math evaluation
-        setResult(eval(expression));
-      } catch {
-        setResult("Error");
-      }
-    } else if (value === "C") {
-      setExpression("");
-      setResult(null);
+      calculateResult();
     } else {
-      setExpression((prev) => prev + value);
+      appendToExpression(value);
     }
   };
 
-  const buttons: string[] = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "0",
-    "+",
-    "-",
-    "=",
-  ];
+  const calculateResult = () => {
+    try {
+      setResult(eval(expression));
+    } catch {
+      setResult("Invalid Expression");
+    }
+  };
+
+  const appendToExpression = (value: string) => {
+    setExpression((prev) => prev + value);
+  };
+
+  const getClassName = (btn: string) => {
+    if (btn === "=") return "btn equal";
+    if (btn === "+" || btn === "-") return "btn plus-minus";
+    return "btn";
+  };
 
   return (
     <div className="calculator">
       <Display expression={expression} result={result} />
       <div className="buttons">
-        {buttons.map((btn, index) => (
+        {BUTTONS.map((btn, index) => (
           <button
             key={index}
-            className={`btn ${btn === "=" ? "equal" : ""}`}
+            className={getClassName(btn)}
             onClick={() => handleClick(btn)}
           >
             {btn}

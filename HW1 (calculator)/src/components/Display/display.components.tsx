@@ -1,15 +1,15 @@
 import "./dispaly.css";
-interface DisplayProps {
-  expression: string; // The mathematical expression to display
-  result: number | string | null; // The result to display (number, string, or null)
+
+interface IDisplayProps {
+  expression: string;
+  result: number | string | null;
 }
 
-function Display({ expression, result }: DisplayProps) {
-  console.log(result);
+function Display({ expression, result }: IDisplayProps) {
   return (
     <div className="display-container">
       <span className="expression">{expression} </span>
-      <span className="result"> {result}</span>
+      {result && <span className="result"> {`= ${result}`}</span>}
     </div>
   );
 }

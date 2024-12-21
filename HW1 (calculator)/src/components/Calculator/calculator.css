@@ -15,7 +15,7 @@
 }
 
 .btn {
-  background-color: #457b9d;
+  background-color: #3c64b1;
   color: #fff;
   font-size: 18px;
   border: none;
@@ -31,7 +31,11 @@
 
 .btn.equal {
   grid-column: span 3;
-  background-color: #2a9d8f;
+  background-color: #27ae60;
+}
+
+.btn.plus-minus {
+  background-color: #f2994a;
 }
 
 .btn.equal:hover {
