@@ -18,7 +18,7 @@ This is a simple and elegant To-Do application built using React, Vite, and Type
 - **React**: For building the user interface.
 - **Vite**: For fast development and build tooling.
 - **TypeScript**: For type-safe development.
-- **CSS**: For styling the components.
+- **Tailwind css**: For styling the components.
 
 ## Getting Started
 
