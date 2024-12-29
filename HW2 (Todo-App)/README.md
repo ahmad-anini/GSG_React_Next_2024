@@ -2,7 +2,8 @@
 
 This is a simple and elegant To-Do application built using React, Vite, and TypeScript. The app allows users to manage tasks effectively with features like adding tasks, marking them as urgent, completing tasks, and deleting tasks.
 
-![Screenshot](./screenshot.png)
+![image](https://github.com/user-attachments/assets/d5b0b213-a811-4b90-b34d-f9265e03e494)
+
 
 ## Features
 
@@ -37,11 +38,15 @@ Make sure you have the following installed:
    cd react-todo-app
 
 2. Install dependencies:
+
+    ```bash
     npm install
     # or
     yarn install
 
-3. Running the App:
+4. Running the App:
+
+    ```bash
     npm run dev
     # or
     yarn dev
